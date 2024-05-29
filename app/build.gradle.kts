@@ -58,6 +58,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
+    testImplementation("junit:junit:4.12")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
@@ -81,4 +82,23 @@ dependencies {
 
 
 
+    //--------------ViewModel Test dependencies-----------------
+
+    // Dependency: Mockito is a mocking framework that allows you to create and configure mock objects.
+    testImplementation ("org.mockito:mockito-core:3.11.2")
+
+    //Dependency: Mockito Kotlin library, which provides some Kotlin-specific features.
+    testImplementation("org.mockito.kotlin:mockito-kotlin:3.2.0")
+
+    //Dependency: Ensures access to Mockito's "inline" functionality
+    testImplementation ("org.mockito:mockito-inline:3.11.2")
+
+    //Dependency: Ensures that you have access to testing utilities specifically
+    //testing Kotlin coroutines in your test code.
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.0")
+
+    //Dependency: provides utilities for android architecture components:
+    //Offers classes and methods that facilitate testing of components like LiveData,
+    // ViewModel, Room, and other architectural elements in Android apps.
+    testImplementation ("androidx.arch.core:core-testing:2.1.0")
 }

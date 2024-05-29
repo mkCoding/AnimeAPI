@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CharactersListViewModel @Inject constructor(val repository: ApiRepository):ViewModel() {
+class CharactersListViewModel @Inject constructor(private val repository: ApiRepository):ViewModel() {
 
     //If json response starts with an Object use this -> MutableLiveData<Model>
     //If json response starts with an Array use this -> MutableLiveData<ArrayList<Model>>
@@ -21,19 +21,17 @@ class CharactersListViewModel @Inject constructor(val repository: ApiRepository)
     val charactersList:LiveData<CharactersModel> = _charactersList
 
     init {
-        getAllCharacters()
+        //getAllCharacters()
     }
 
-    private fun getAllCharacters() {
+    fun getAllCharacters() {
         viewModelScope.launch {
             val allCharacters = repository.getCharacters()
 
             if(allCharacters!=null){
-                _charactersList.postValue(allCharacters) //this is very important for updating the view
-
+                //this is very important for updating the view
+                _charactersList.postValue(allCharacters)
             }
-            Log.d("CharactersListViewModel", allCharacters.data?.get(0)?.name ?: "No name found")
-
         }
 
     }

@@ -25,6 +25,7 @@ class CharactersListFragment : Fragment() {
 
         val charactersListViewModel = ViewModelProvider(this)[CharactersListViewModel::class.java]
 
+        charactersListViewModel.getAllCharacters()
         charactersListViewModel.charactersList.observe(viewLifecycleOwner){
             binding.rvCharacters.apply {
                     layoutManager = LinearLayoutManager(context)
